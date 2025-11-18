@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Typing Speed Tester</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Typing Speed Tester</h1>
+    <p class="lead">Practice and measure your typing speed (WPM) and accuracy. Type the text below; results update live.</p>
+
+    <div class="top">
+      <div class="stat"><div class="label">Time</div><div id="timeDisplay" class="num">60s</div></div>
+      <div class="stat"><div class="label">WPM</div><div id="wpm" class="num">0</div></div>
+      <div class="stat"><div class="label">Accuracy</div><div id="accuracy" class="num">100%</div></div>
+      <div class="stat"><div class="label">Errors</div><div id="errors" class="num">0</div></div>
+
+      <div class="controls">
+        <button id="startBtn">Start</button>
+        <button id="resetBtn" class="secondary">Reset</button>
+      </div>
+    </div>
+
+    <div class="main">
+      <div>
+        <div class="text-card">
+          <div id="textDisplay" class="text-display" aria-live="polite"></div>
+          <textarea id="input" class="typing" placeholder="Type here... (click Start or press any key)" disabled></textarea>
+          <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="option"><label for="timeSelect">Duration (s):</label>
+          <select id="timeSelect">
+            <option value="15">15</option>
+            <option value="30">30</option>
+            <option value="60" selected>60</option>
+            <option value="120">120</option>
+          </select>
+        </div>
+
+        <div class="option"><label for="sampleSelect">Sample text:</label>
+          <select id="sampleSelect">
+            <option value="easy" selected>Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+
+        <div id="customWrap" style="display:none;" class="option"><textarea id="customText" rows="4" style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" placeholder="Paste your custom text here"></textarea></div>
+
+        <div class="results">
+          <div class="result-card"><div>CPM</div><strong id="cpm">0</strong></div>
+          <div class="result-card"><div>Characters</div><strong id="chars">0</strong></div>
+          <div class="result-card"><div>Correct</div><strong id="correct">0</strong></div>
+          <div class="result-card"><div>Best WPM</div><strong id="best">-</strong></div>
+        </div>
+
+        <footer class="small">Tip: Press <kbd>Esc</kbd> to reset. Your best score is saved locally.</footer>
+      </aside>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
